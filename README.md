@@ -1,4 +1,4 @@
-# How to Debugging PHP with VSCode
+# How to Debugging PHP with VS Code
 
 ## Summary
 
