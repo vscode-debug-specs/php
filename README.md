@@ -1,54 +1,50 @@
 ---
 title: How to Debugging PHP with VSCode
-permalink: /php/
+permalink: /
 ---
+
 # How to Debugging PHP with VSCode
 
 ## Summary
 
-* [Basic](#basic), [Spec](#spec)
-* [instraction](#instraction)
-* [attach running and remote process](#attach-running-and-remote-process)
+- [Basic](#basic), [Spec](#spec)
+- [instraction](#instraction)
+- [attach running and remote process](#attach-running-and-remote-process)
 
 ## basic
 
-* [PHP](https://www.php.net/)
-* Extension:
-* Debugger: php-xdebug
-* module code: [bubble_sort.php](bubble_sort.php)
+- [PHP](https://www.php.net/)
+- Extension:
+- Debugger: php-xdebug
+- module code: [bubble_sort.php](bubble_sort.php)
 
 ## spec
 
-* OS
-	* ✅ MacOS
-	* ✅ Windows
-	* ✅ Linux
-* Break Point
-	* ✅ break point
-	* ✅ condition break point
-	* ✅ function breakpoint
-	* ✅ Notice, Warning, Error
-	* ✅ Exception
-* Step Execution
-	* ✅ Step Over
-	* ✅ Step Into
-	* ✅ Step Out
-	* ✅ Continue
-	* ❌ Step Back
-	* ❌ Move To
-	* ❌ Pause
-* Variables
-	* ✅ variables views
-	* ✅ watch variables
-* Call Stack
-	* ✅ call stack
-* Evaluation
-	* ✅ eval expression to show variables
-	* ✅ eval expression to change variables
-* Type of Execution
-	* ✅ debug unit test
-	* ✅ debug executable package
-	* ❌ remote debugging: will support soon
+- OS
+  _ ✅ MacOS
+  _ ✅ Windows \* ✅ Linux
+- Break Point
+  _ ✅ break point
+  _ ✅ condition break point
+  _ ✅ function breakpoint
+  _ ✅ Notice, Warning, Error \* ✅ Exception
+- Step Execution
+  _ ✅ Step Over
+  _ ✅ Step Into
+  _ ✅ Step Out
+  _ ✅ Continue
+  _ ❌ Step Back
+  _ ❌ Move To \* ❌ Pause
+- Variables
+  _ ✅ variables views
+  _ ✅ watch variables
+- Call Stack \* ✅ call stack
+- Evaluation
+  _ ✅ eval expression to show variables
+  _ ✅ eval expression to change variables
+- Type of Execution
+  _ ✅ debug unit test
+  _ ✅ debug executable package \* ❌ remote debugging: will support soon
 
 ## instruction
 
@@ -114,7 +110,6 @@ brew services start nginx
 
 access http://localhost:8080/
 
-
 #### 5. test
 
 add phpinfo.php to your root directory.
@@ -131,19 +126,18 @@ phpinfo();
 
 access http://localhost:8080/phpinfo.php
 
-* nginx log: /usr/local/var/log/nginx/
-* php log: /usr/local/var/log/php-fpm.log
+- nginx log: /usr/local/var/log/nginx/
+- php log: /usr/local/var/log/php-fpm.log
 
 ### Windows
 
- 1. download xampp [https://www.apachefriends.org/](https://www.apachefriends.org/)
-    * default install path `C:\xampp`
- 2. start apache
- 3. open phpinfo.php page on web server. And copy HTML source.
- 4. open https://xdebug.org/wizard.php and paste its phpinfo source.
- 5. see your instruction and do it.
- 6. restart apache
-
+1.  download xampp [https://www.apachefriends.org/](https://www.apachefriends.org/)
+    - default install path `C:\xampp`
+2.  start apache
+3.  open phpinfo.php page on web server. And copy HTML source.
+4.  open https://xdebug.org/wizard.php and paste its phpinfo source.
+5.  see your instruction and do it.
+6.  restart apache
 
 ### Linux Ubuntu 17.04
 
@@ -155,9 +149,9 @@ sudo apt install php php-fpm php-xdebug nginx
 
 #### 2. set up nginx
 
-* commentout php-fpm settings
-* change unix socket path(php7.0-fpm.sock->php7.2-fpm.sock)
-* update `root` directory
+- commentout php-fpm settings
+- change unix socket path(php7.0-fpm.sock->php7.2-fpm.sock)
+- update `root` directory
 
 ```
 sudo vi /etc/nginx/sites-enabled/default
@@ -218,15 +212,15 @@ select debug php, this setting will be created.
 
 ```json
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Listen for XDebug",
-			"type": "php",
-			"request": "launch",
-			"port": 9000
-		}
-	]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Listen for XDebug",
+      "type": "php",
+      "request": "launch",
+      "port": 9000
+    }
+  ]
 }
 ```
 
@@ -236,23 +230,23 @@ select debug php, this setting will be created.
 
 ```json
 {
-	"version": "0.2.0",
-	"configurations": [
-		{
-			"name": "Launch currently open script",
-			"type": "php",
-			"request": "launch",
-			"program": "${file}",
-			"cwd": "${fileDirname}",
-			"port": 9001
-		}
-	]
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Launch currently open script",
+      "type": "php",
+      "request": "launch",
+      "program": "${file}",
+      "cwd": "${fileDirname}",
+      "port": 9001
+    }
+  ]
 }
 ```
 
 ## remote debug
 
- 1. add your ip to `xdebug.remote_host` and restart php
+1.  add your ip to `xdebug.remote_host` and restart php
 
 ```
 zend_extension=xdebug.so
@@ -267,7 +261,7 @@ xdebug.max_nesting_level=1000
 xdebug.idekey="PHPSTORM"
 ```
 
- 2. write launch.json
+2.  write launch.json
 
 ```
 {
@@ -287,4 +281,4 @@ xdebug.idekey="PHPSTORM"
 }
 ```
 
- 3. start debugging
+3.  start debugging
