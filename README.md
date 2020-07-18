@@ -1,8 +1,3 @@
----
-title: How to Debugging PHP with VSCode
-permalink: /
----
-
 # How to Debugging PHP with VSCode
 
 ## Summary
